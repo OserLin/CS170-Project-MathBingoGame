@@ -1,12 +1,15 @@
 package teamlab;
-
-import java.io.IOException;
-import java.util.*;
-
+/*
+ * name: Qian Cai,Yuance Lin,Yiwen Moo
+ * class: CS170 #01
+ * due: 10:00 pm, Wednesday, May 15
+ * description: 
+ * this class have all the method and variable that game needed
+ */
 public class GameInfo {
 	int size = 3, range = 9;	//the size of matrix and the range of random number
-	boolean[][] tapped;
-	String[][] ButtonResult;
+	boolean[][] tapped;			//this 2D  array stores status of the matrix
+	String[][] ButtonResult;	//this array store value prints on button
 	int ImageNum = 0;	//to store question which is number of image
     
 	//constructor to set size and range
@@ -16,7 +19,7 @@ public class GameInfo {
 		tapped = new boolean[size][size];
 		ButtonResult = new String[size][size];
 	}
-	
+	//this function set amount of image number from ButtonResult include avoid duplicate
 	public void SetImageNum()
 	{
 		//check duplicate
@@ -26,6 +29,8 @@ public class GameInfo {
 			ImageNum = Integer.valueOf(ButtonResult[col][row]);
 		}while(ImageNum == range+1);	//looping until not duplicate
 	}
+	
+	//this function full fill the value in ButtonResult array with random number
 	public void SetButton()
 	{
 		int num = 0;
@@ -38,7 +43,7 @@ public class GameInfo {
             }
 		}
 	}
-	
+	//this function check bingo for player and return true or false
 	public boolean CheckBingo()
 	{
 		boolean colbingo,rowbingo,diagonal1 = true,diagonal2 = true;
